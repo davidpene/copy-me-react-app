@@ -26,7 +26,9 @@ type Config = {
 };
 
 export function register(config?: Config) {
+  console.log('registering service worker');
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
+    console.log('inside If statement');
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(
       (process as { env: { [key: string]: string } }).env.PUBLIC_URL,
@@ -36,13 +38,16 @@ export function register(config?: Config) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
+      console.log('Unable to register service worker');
       return;
     }
 
     window.addEventListener('load', () => {
+      
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-
+      console.log(`swUrl: ${swUrl}`);
       if (isLocalhost) {
+        console.log('isLocalhost')
         // This is running on localhost. Let's check if a service worker still exists or not.
         checkValidServiceWorker(swUrl, config);
 
@@ -59,10 +64,15 @@ export function register(config?: Config) {
         registerValidSW(swUrl, config);
       }
     });
+  } else {
+    console.log('didnt make the cut service worker');
+    console.log(process.env.NODE_ENV)
+    console.log(navigator);
   }
 }
 
 function registerValidSW(swUrl: string, config?: Config) {
+  console.log('registerValidSW');
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
@@ -107,6 +117,7 @@ function registerValidSW(swUrl: string, config?: Config) {
 }
 
 function checkValidServiceWorker(swUrl: string, config?: Config) {
+  console.log('checkValidServiceWorker');
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {

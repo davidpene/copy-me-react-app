@@ -1,22 +1,32 @@
 {
-  "name": "health-circle-prototype",
+  "name": "copy-me-react-app",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "David Pene",
+    "url": "https://davidpene.com"
+  },
+  "license": "MIT",
   "dependencies": {
-    "@types/jest": "24.0.15",
-    "@types/node": "12.6.8",
-    "@types/react": "16.8.23",
-    "@types/react-dom": "16.8.4",
+    "connected-react-router": "^6.5.2",
+    "history": "^4.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "redux-saga": "^1.0.5",
+    "typesafe-actions": "^4.4.2",
     "typescript": "3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-sw": "http-server ./build",
+    "start-sw-ssl": "http-server ./build --ssl --cert ../ssl-dev/cert.pem --key ../ssl-dev/key.pem"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,5 +42,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/history": "^4.7.2",
+    "@types/jest": "24.0.15",
+    "@types/node": "12.6.8",
+    "@types/react": "16.8.23",
+    "@types/react-dom": "16.8.4",
+    "@types/react-redux": "7.1.0",
+    "@types/react-router": "^5.0.3",
+    "@types/react-router-dom": "^4.3.4",
+    "http-server": "^0.11.1",
+    "redux-devtools-extension": "^2.13.8"
   }
 }
