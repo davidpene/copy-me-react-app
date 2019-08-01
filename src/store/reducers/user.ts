@@ -43,7 +43,7 @@ export const isAuthenticated = (state = defaultState.isAuthenticated, action: ac
 const user = combineReducers<IUserState>({
     entity: (entity as Reducer<IUser | null>),
     isLoading: (isLoading as Reducer<boolean>),
-    isAuthenticated: (isLoading as Reducer<boolean>)
+    isAuthenticated: (isAuthenticated as Reducer<boolean>)
 });
 
 export default user;
